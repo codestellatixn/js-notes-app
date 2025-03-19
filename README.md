@@ -2,7 +2,7 @@
 
 A simple and minimalistic notes application built with HTML, CSS, and JavaScript. The app allows users to create, edit, and delete notes while saving them in local storage for persistence. It also supports markdown formatting using the **marked** library.
 
-![Screenshot of the Notes App](./screenshot.png)
+![Screenshot of the Notes App](./images/screenshot.png)
 
 ## Features ✨
 - Add new notes with a single click.
