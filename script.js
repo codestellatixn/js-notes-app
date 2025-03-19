@@ -1,23 +1,17 @@
-marked.setOptions({
-  gfm: true,
-  breaks: true,
-});
 
-const addBtn = document.getElementById('add');
+const addBtn = document.getElementById("add");
 
-const notes = JSON.parse(localStorage.getItem('notes'));
+const notes = JSON.parse(localStorage.getItem("notes")) || [];
 
-
-
-if(notes.length > 0) {
-    notes.forEach(note => {
-        addNewNote(note);
-    });
+if (notes.length > 0) {
+  notes.forEach((note) => {
+    addNewNote(note);
+  });
 }
 
-addBtn.addEventListener('click', () => {
-    addNewNote();
-})
+addBtn.addEventListener("click", () => {
+  addNewNote();
+});
 
 //debounce
 function debounce(func, delay) {
@@ -25,10 +19,10 @@ function debounce(func, delay) {
   return (...args) => {
     clearTimeout(timeout);
     timeout = setTimeout(() => func(...args), delay);
-  }
+  };
 }
 
-const debounceUpdateLS = debounce(updateLS, 300)
+const debounceUpdateLS = debounce(updateLS, 300);
 
 function addNewNote(text = "") {
   const note = document.createElement("div");
@@ -47,8 +41,8 @@ function addNewNote(text = "") {
                 </button>
             </div>
       
-            <div class="main ${text ? '' : 'hidden'}"></div>
-            <textarea class="${text ? 'hidden' : ''}"></textarea>
+            <div class="main ${text ? "" : "hidden"}"></div>
+            <textarea class="${text ? "hidden" : ""}"></textarea>
         </div>
     `;
 
@@ -65,12 +59,12 @@ function addNewNote(text = "") {
     main.classList.toggle("hidden");
     textArea.classList.toggle("hidden");
 
-    if(textArea.classList.contains("hidden")){
+    if (textArea.classList.contains("hidden")) {
       editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
-      textArea.style.backgroundColor = "var(--yellow-color"
+      textArea.style.backgroundColor = "var(--yellow-color";
     } else {
       editBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
-      textArea.style.backgroundColor = "#FFE9D3"
+      textArea.style.backgroundColor = "#FFE9D3";
     }
   });
 
@@ -83,9 +77,7 @@ function addNewNote(text = "") {
   textArea.addEventListener("input", (e) => {
     let {value} = e.target;
 
-    const escapedText = value.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
-    main.innerHTML = marked.parse(escapedText);
+    main.innerHTML = marked.parse(value);
 
     debounceUpdateLS();
   });
@@ -94,14 +86,13 @@ function addNewNote(text = "") {
 }
 
 function updateLS() {
-    const notesText = document.querySelectorAll('textarea');
+  const notesText = document.querySelectorAll("textarea");
 
-    const notes = [];
+  const notes = [];
 
-    notesText.forEach(note => {
-        notes.push(note.value);
-    });
+  notesText.forEach((note) => {
+    notes.push(note.value);
+  });
 
-    localStorage.setItem('notes', JSON.stringify(notes));
+  localStorage.setItem("notes", JSON.stringify(notes));
 }
-

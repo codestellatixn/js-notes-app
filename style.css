@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
 :root {
-  --blue-color: #BFECFF;
-  --purple-color: #CDC1FF;
-  --yellow-color: #FFF6E3;
-  --pink-color: #FFCCEA;
+  --blue-color: #bfecff;
+  --purple-color: #cdc1ff;
+  --yellow-color: #fff6e3;
+  --pink-color: #ffccea;
   --text-color: #333;
   --font-size: 1rem;
   --btn-font-size: 1.2rem;
@@ -23,7 +23,7 @@ body {
   background-color: var(--blue-color);
   color: var(--text-color);
   font-family: "Poppins", sans-serif;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +32,7 @@ body {
 }
 
 .add {
-  background-color: #FFF9BF;
+  background-color: #fff9bf;
   margin: 1rem;
   padding: 0.5rem 1rem;
   border: none;
@@ -107,7 +107,7 @@ textarea {
   outline: none;
   resize: none;
 }
- 
+
 .note .hidden {
   display: none;
 }
@@ -142,5 +142,5 @@ textarea {
 }
 
 .note textarea.edit-mode {
-  background-color: #FFE9D3;;
+  background-color: #ffe9d3;
 }
